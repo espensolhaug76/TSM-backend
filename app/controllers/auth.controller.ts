@@ -466,13 +466,13 @@ const verifyRegistrationToken = async (req: Request, res: Response) => {
     await token.remove() 
 
     // Redirect to login page after successful verification with a success flag
-    res.status(301).redirect(`${config.API_URL}/login?verified=true`)
+    res.status(301).redirect(`${config.CLIENT_URL}/login?verified=true`)
 
   } catch (error: any) {
     // Log the error to help with debugging
     console.error("error in verifyRegistrationToken:", error)
     // If an error occurs, redirect to login with a failure flag
-    res.status(301).redirect(`${config.API_URL}/login?verified=false`)
+    res.status(301).redirect(`${config.CLIENT_URL}/login?verified=false`)
   }
 }
 
